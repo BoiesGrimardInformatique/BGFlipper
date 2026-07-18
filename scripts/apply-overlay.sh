@@ -36,6 +36,18 @@ copy_tree() {
 # --- 1) Détection de divergence sur les fichiers remplacés -------------------
 HASHES="$ROOT/overlay/UPSTREAM_HASHES.txt"
 if [[ -f "$HASHES" ]]; then
+    # Idempotence : on restaure d'abord les fichiers upstream *suivis* à leur
+    # version d'origine (git). Sans ça, un 2e passage relirait notre propre
+    # overlay déjà copié et le prendrait à tort pour une divergence upstream.
+    # Après restauration, le md5 reflète la vraie version du firmware cloné :
+    # une VRAIE dérive (montée de version) reste donc bien détectée.
+    echo "==> Restauration des fichiers upstream suivis (idempotence)..."
+    while read -r expected relpath; do
+        [[ "$expected" =~ ^#.*$ || -z "$expected" ]] && continue
+        git -C "$UPSTREAM_DIR" checkout -- "$relpath" 2>/dev/null \
+            || echo "!!  $relpath : restauration git impossible (non suivi ?)."
+    done < "$HASHES"
+
     echo "==> Vérification des empreintes upstream..."
     drift=0
     while read -r expected relpath; do
