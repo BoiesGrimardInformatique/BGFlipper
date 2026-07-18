@@ -24,6 +24,6 @@ cd "$ROOT/upstream"
 
 echo
 echo "==> Build terminé."
-echo "    Firmware        : upstream/dist/f7-D/  (flipper-z-f7-*.dfu / .tgz)"
+echo "    Firmware        : upstream/dist/f7-D/  (flipper-z-f7-*.dfu / .bin)"
 echo "    Pour flasher    : scripts/flash.sh"
 echo "    Pour tester 1 app : make run APP=bgflipper_splash"
