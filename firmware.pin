@@ -1,0 +1,6 @@
+# Version du firmware Flipper Zero officiel sur laquelle BGFlipper OS est basé.
+# Modifiée par les scripts ; ne pas éditer à la main sans mettre à jour
+# overlay/UPSTREAM_HASHES.txt en conséquence.
+FIRMWARE_REPO=https://github.com/flipperdevices/flipperzero-firmware.git
+FIRMWARE_TAG=1.4.3
+FIRMWARE_COMMIT=8622f1a2b83d8f4918dd5fa3f43de963f6d6f819

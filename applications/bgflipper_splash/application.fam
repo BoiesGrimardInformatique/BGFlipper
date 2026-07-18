@@ -1,0 +1,12 @@
+App(
+    appid="bgflipper_splash",
+    name="BGFlipper OS",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="bgflipper_splash_app",
+    requires=["gui", "notification"],
+    stack_size=2 * 1024,
+    fap_version="0.1",
+    fap_description="Ecran de bienvenue et carte d'identite de BGFlipper OS",
+    fap_author="BoiesGrimardInformatique",
+    fap_category="BGFlipper",
+)

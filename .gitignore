@@ -1,0 +1,18 @@
+# Firmware officiel cloné localement par scripts/setup.sh (~500 Mo avec sous-modules).
+# On ne le versionne jamais : il est reconstruit depuis firmware.pin.
+/upstream/
+
+# Artefacts de build
+*.o
+*.elf
+*.bin
+*.dfu
+*.fap
+dist/
+build/
+
+# Divers
+.DS_Store
+*.swp
+# Uniquement une copie éventuelle à la racine (la version maîtresse est overlay/fbt_options_local.py)
+/fbt_options_local.py

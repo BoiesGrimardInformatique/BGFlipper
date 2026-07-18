@@ -1,0 +1,6 @@
+# Empreintes md5 des fichiers upstream (firmware 1.4.3) que nos overlays
+# de type "remplacement" recouvrent. Utilisé par scripts/apply-overlay.sh
+# pour détecter une divergence lors d'un changement de version.
+#
+# Format : <md5>  <chemin relatif à upstream/>
+9f24be977b7a2a1600b6b8c0fa546c83  applications/services/cli/cli_main_shell.c
