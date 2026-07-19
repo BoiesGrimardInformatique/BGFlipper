@@ -35,9 +35,11 @@ obtenir rapidement un OS flashable et le faire évoluer sans repartir de zéro.
 
 ## 🔁 Phase 4 — Industrialisation
 
-- [ ] CI (GitHub Actions) : build du firmware + des FAP à chaque push.
+- [x] CI (GitHub Actions) : build du firmware + des FAP à chaque push, avec
+      lint (shellcheck) et archivage des artefacts — `.github/workflows/build.yml`.
 - [ ] Publication de « releases » (`.dfu` / `.tgz`) prêtes à flasher via qFlipper.
-- [ ] Procédure documentée de montée de version upstream (report des overlays).
+- [x] Procédure documentée de montée de version upstream (report des overlays,
+      `make update-hashes` auto-découvre les fichiers de remplacement).
 - [ ] Versionnage sémantique de BGFlipper OS (`VERSION`).
 
 ## ⚖️ Notes légales & sécurité

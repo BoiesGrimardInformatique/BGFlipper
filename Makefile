@@ -29,10 +29,7 @@ run: overlay ## Compile, envoie et lance UNE app :  make run APP=bgflipper_splas
 	cd upstream && ./fbt launch APPSRC=applications_user/$(APP)
 
 update-hashes: ## Régénère overlay/UPSTREAM_HASHES.txt depuis l'upstream courant
-	@echo "# Empreintes md5 des fichiers upstream recouverts par un overlay." > overlay/UPSTREAM_HASHES.txt
-	@echo "# Régénéré par 'make update-hashes'." >> overlay/UPSTREAM_HASHES.txt
-	@cd upstream && md5sum applications/services/cli/cli_main_shell.c >> ../overlay/UPSTREAM_HASHES.txt
-	@echo "overlay/UPSTREAM_HASHES.txt mis à jour."
+	./scripts/update-hashes.sh
 
 clean: ## Nettoie les artefacts de build (garde le clone upstream)
 	@if [ -d upstream ]; then cd upstream && ./fbt -c || true; fi

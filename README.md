@@ -1,5 +1,7 @@
 # BGFlipper OS
 
+[![build](https://github.com/BoiesGrimardInformatique/BGFlipper/actions/workflows/build.yml/badge.svg)](https://github.com/BoiesGrimardInformatique/BGFlipper/actions/workflows/build.yml)
+
 > Mon firmware personnalisé (« OS ») pour le **Flipper Zero**, construit comme
 > une couche d'overlay au-dessus du firmware officiel open-source.
 
@@ -48,7 +50,8 @@ BGFlipper/
 ├── VERSION                   ← version de BGFlipper OS
 ├── firmware.pin              ← tag + commit du firmware officiel de base
 ├── Makefile                  ← raccourcis : setup / build / flash / run
-├── scripts/                  ← setup, apply-overlay, build, flash
+├── .github/workflows/        ← CI : lint + build firmware/FAP à chaque push
+├── scripts/                  ← setup, apply-overlay, build, flash, update-hashes
 ├── overlay/                  ← fichiers qui recouvrent le firmware officiel
 │   ├── fbt_options_local.py         (branding non intrusif)
 │   ├── applications/services/cli/…  (bannière CLI)
@@ -79,7 +82,8 @@ plus fragiles. Détails → **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**.
 ## Statut
 
 **Phase 0 — Fondations** : structure, branding, première app et docs en place.
-La validation sur matériel réel (flash) est la prochaine étape — voir la
+La CI (GitHub Actions) construit désormais firmware + FAP à chaque push. La
+validation sur **matériel réel** (flash) reste la prochaine étape — voir la
 feuille de route. Contributions et idées bienvenues.
 
 ## Licence & mentions légales

@@ -24,6 +24,15 @@ cd "$ROOT/upstream"
 
 echo
 echo "==> Build terminé."
-echo "    Firmware        : upstream/dist/f7-D/  (flipper-z-f7-*.dfu / .bin)"
+
+# Le suffixe du dossier dist (f7-C, f7-D, …) dépend de la variante de build
+# (release/debug/compact). On l'affiche dynamiquement plutôt que de le coder en
+# dur, pour ne jamais annoncer un chemin faux.
+dist_dir="$(find "$ROOT/upstream/dist" -maxdepth 1 -type d -name 'f7-*' 2>/dev/null | sort | head -n1 || true)"
+if [[ -n "$dist_dir" ]]; then
+    echo "    Firmware        : ${dist_dir#"$ROOT"/}/  (flipper-z-f7-*.dfu / .bin)"
+else
+    echo "    Firmware        : upstream/dist/f7-*/  (flipper-z-f7-*.dfu / .bin)"
+fi
 echo "    Pour flasher    : scripts/flash.sh"
 echo "    Pour tester 1 app : make run APP=bgflipper_splash"

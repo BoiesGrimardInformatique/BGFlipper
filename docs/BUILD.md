@@ -44,8 +44,10 @@ ignoré par git : il est reconstruit à la demande, jamais versionné.
    - copie `applications/` dans `upstream/applications_user/` ;
 3. lance `./fbt` dans `upstream/` (toolchain téléchargée au 1er run).
 
-Sortie : `upstream/dist/f7-C/` contient les artefacts
-(`flipper-z-f7-full-*.dfu`, `*.tgz`, updater, etc.).
+Sortie : `upstream/dist/f7-*/` contient les artefacts
+(`flipper-z-f7-full-*.dfu`, `*.tgz`, updater, etc.). Le suffixe exact (`f7-C`,
+`f7-D`, …) dépend de la variante de build ; `build.sh` affiche le chemin réel
+en fin de compilation.
 
 ### `make flash`
 Exécute `./fbt flash_usb_full` : envoie le firmware **et** synchronise les

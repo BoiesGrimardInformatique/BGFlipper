@@ -33,7 +33,8 @@ Autres variables utiles (voir `upstream/fbt_options.py`) :
 
 On remplace la fonction `cli_main_motd()` pour afficher le logo « BGFlipper OS ».
 Comme c'est un **remplacement de fichier**, son empreinte upstream est suivie
-dans `overlay/UPSTREAM_HASHES.txt`. Régénérez-la après tout report :
+dans `overlay/UPSTREAM_HASHES.txt`. Régénérez-la après tout report (le script
+détecte automatiquement les fichiers de remplacement, rien à lister) :
 
 ```bash
 make update-hashes
@@ -116,9 +117,10 @@ int32_t mon_app_main(void* p) {
 | App « About » (texte/version affichés) | `applications/settings/about/about.c` | remplacement |
 | Apps intégrées par défaut | `FIRMWARE_APPS` via `fbt_options_local.py` | hook |
 
-> Pour tout **remplacement**, ajoutez l'empreinte du fichier upstream dans
-> `overlay/UPSTREAM_HASHES.txt` (`make update-hashes` après avoir listé le
-> fichier dans la cible `update-hashes` du Makefile) afin de détecter les
+> Pour tout **remplacement**, lancez simplement `make update-hashes` : le script
+> `scripts/update-hashes.sh` découvre tout seul les overlays qui recouvrent un
+> fichier upstream et enregistre leur empreinte dans `overlay/UPSTREAM_HASHES.txt`
+> (aucune liste à maintenir à la main). Ces empreintes servent à détecter les
 > divergences aux montées de version.
 
 Les assets binaires (PNG des animations, logo) ne sont pas encore inclus dans ce
