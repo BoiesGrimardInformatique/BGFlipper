@@ -31,11 +31,23 @@ des outils. Suite retenue (20) :
 - **RF / analyse** : spectrum_analyzer, radio_scanner, protoview, weather_station, pocsag_pager
 - **NFC / RFID** : mfc_editor, nfc_magic, nfc_rfid_detector, picopass
 - **Sécurité offensive (dual-use)** : wifi_marauder_companion, esp8266_deauth, mousejacker, nrfsniff
+- **Sécurité — ajout complémentaire** : ble_spam, wifi_scanner, subbrute, multi_fuzzer,
+  sentry_safe, rolling_flaws
+
+### Adaptations à l'API 1.4.3 (modifications GPLv3 signalées)
+
+Certains outils, écrits pour un firmware plus récent, ont été **adaptés** pour compiler
+contre l'officiel 1.4.3 (chaque modification est commentée `// BGFlipper OS:` dans le code) :
+- `wifi_scanner` : `canvas_current_font_width()` (absent) → `canvas_string_width(canvas, "0")`.
+- `ble_spam` : police `FontBatteryPercent` (absente) → `FontSecondary` ; `variable_item_list_get()`
+  (absent) → pointeur d'item stocké dans le `Ctx`.
+- `subbrute` : retrait de l'include/appel `custom_btn` (extension SubGHz propre à Unleashed) ;
+  `FontBatteryPercent` → `FontSecondary`.
 
 ⚖️ Les outils **dual-use** (édition/écriture de cartes NFC/RFID, deauth WiFi, mousejacker,
-sniff nRF, marauder) sont destinés à un usage **autorisé** (pentest, recherche) sous la
-responsabilité de l'opérateur. Plusieurs nécessitent un **module matériel externe**
-(ESP32/ESP8266, nRF24) pour fonctionner.
+sniff nRF, marauder, BLE spam, brute-force SubGHz, ouverture de coffres Sentry) sont destinés
+à un usage **autorisé** (pentest, recherche) sous la responsabilité de l'opérateur. Plusieurs
+nécessitent un **module matériel externe** (ESP32/ESP8266, nRF24) pour fonctionner.
 
 ## Non importé (et pourquoi)
 
