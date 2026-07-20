@@ -7,3 +7,5 @@
 d2b8666e91abbdc733beb5a6468d643c  targets/f7/furi_hal/furi_hal_subghz.c
 9a0894d00181bc644561d77558eab785  targets/f7/furi_hal/furi_hal_region.c
 8feafc1e8b581673fe12ee9a2cb49f15  applications/drivers/subghz/cc1101_ext/cc1101_ext.c
+461dc4e0e1032efe8b4215695ae9d6ca  assets/dolphin/external/manifest.txt
+efe15c404335c435b762c9c1fc36ce8f  applications/services/desktop/desktop.c
