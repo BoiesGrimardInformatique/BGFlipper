@@ -4,3 +4,6 @@
 #
 # Format : <md5>  <chemin relatif à upstream/>
 9f24be977b7a2a1600b6b8c0fa546c83  applications/services/cli/cli_main_shell.c
+d2b8666e91abbdc733beb5a6468d643c  targets/f7/furi_hal/furi_hal_subghz.c
+9a0894d00181bc644561d77558eab785  targets/f7/furi_hal/furi_hal_region.c
+8feafc1e8b581673fe12ee9a2cb49f15  applications/drivers/subghz/cc1101_ext/cc1101_ext.c

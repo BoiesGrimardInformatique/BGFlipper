@@ -1,0 +1,24 @@
+# BGFlipper OS - reglages Sub-GHz utilisateur
+# Source des presets: DarkFlippers/unleashed-firmware @ unlshd-089 (GPLv3) - voir docs/CREDITS.md
+Filetype: Flipper SubGhz Setting File
+Version: 1
+
+# Ajoute les frequences standard de la region en plus des personnalisees ci-dessous
+Add_standard_frequencies: true
+
+# --- Presets de modulation supplementaires (module CC1101 interne) ---
+
+# FM large bande (~broadcast FM / audio)
+Custom_preset_name: FM95
+Custom_preset_module: CC1101
+Custom_preset_data: 02 0D 0B 06 08 32 07 04 14 00 13 02 12 04 11 83 10 67 15 24 18 18 19 16 1D 91 1C 00 1B 07 20 FB 22 10 21 56 00 00 C0 00 00 00 00 00 00 00
+
+# 2-FSK 200kHz BW / 135kHz filtre / deviation 15.86kHz + ramping
+Custom_preset_name: FM15k
+Custom_preset_module: CC1101
+Custom_preset_data: 02 0D 03 47 08 32 0B 06 15 32 14 00 13 00 12 00 11 32 10 A7 18 18 19 1D 1D 92 1C 00 1B 04 20 FB 22 17 21 B6 00 00 00 12 0E 34 60 C5 C1 C0
+
+# Pagers (POCSAG-friendly)
+Custom_preset_name: Pagers
+Custom_preset_module: CC1101
+Custom_preset_data: 02 0D 07 04 08 32 0B 06 10 64 11 93 12 0C 13 02 14 00 15 15 18 18 19 16 1B 07 1C 00 1D 91 20 FB 21 56 22 10 00 00 C0 00 00 00 00 00 00 00
