@@ -832,3 +832,9 @@ void furi_hal_subghz_stop_async_tx(void) {
 
     furi_hal_subghz.state = SubGhzStateIdle;
 }
+
+// BGFlipper OS: multiplicateur de compteur tournant (extension Unleashed). En 1.4.3
+// on renvoie 1 = incrément standard +1 à chaque TX (pas de réglage utilisateur).
+int32_t furi_hal_subghz_get_rolling_counter_mult(void) {
+    return 1;
+}

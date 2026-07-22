@@ -82,6 +82,46 @@ patchs de code marqués `// BGFlipper OS:`) :
   compatibilité). Le fichier utilisateur public d'Unleashed ne contient que des clés d'exemple.
   → différé, en attente d'une source plaintext fiable.
 
+## Protocoles portés (Palier 3)
+
+Base de comparaison : diff du registre 1.4.3 (`lib/subghz/protocols/protocol_items.c`,
+`lib/lfrfid/protocols/lfrfid_protocols.c`) contre **DarkFlippers/unleashed-firmware**
+`unlshd-089` (GPLv3). La grande majorité des protocoles Unleashed/RogueMaster est déjà
+présente en 1.4.3 (51 Sub-GHz, 24 LFRFID) — seuls les protocoles réellement absents ont
+été portés, en nouveaux fichiers `lib/subghz/protocols/<nom>.c/.h` (auto-compilés, non
+suivis en md5) + entrées ajoutées aux registres `protocol_items.{c,h}` /
+`lfrfid_protocols.{c,h}` (fichiers suivis, cf. `overlay/UPSTREAM_HASHES.txt`).
+
+**Sub-GHz (9 nouveaux protocoles)**, source `unlshd-089` :
+- Statiques/simples : `allstar_firefly`, `elplast`, `honeywell`, `keyfinder`, `nord_ice`,
+  `treadmill37`. Adaptation : le champ global `subghz_block_generic_global.endless_tx`
+  d'Unleashed n'existe pas en 1.4.3 ; le test conditionnel autour de `encoder.repeat--`
+  a été remplacé par la décrémentation inconditionnelle (comportement 1.4.3 standard).
+  `honeywell` : retrait du flag `SubGhzProtocolFlag_Sensors` (catégorie absente en 1.4.3).
+- Code tournant (rolling code) : `beninca_arc`, `ditec_gol4`, `jarolift`. Ces trois
+  protocoles dépendent d'infrastructure Unleashed absente en 1.4.3, portée avec eux :
+  - `lib/subghz/blocks/custom_btn.{c,h}` — bouton personnalisé, porté tel quel
+    (self-contained).
+  - `SubGhzBlockGenericGlobal` (`lib/subghz/blocks/generic.h`) — struct globale
+    (compteur/bouton override, `endless_tx`) + 2 accesseurs, ajoutée par overlay.
+  - `SubGhzBlockGeneric` étendu de 3 champs (`data_2`, `cnt_2`, `seed`) requis par ces
+    protocoles à code tournant.
+  - `lib/subghz/protocols/aes_common.{c,h}` — AES logiciel autonome, porté tel quel
+    (`jarolift`).
+  - `furi_hal_subghz_get_rolling_counter_mult()` — nouvelle fonction HAL publique
+    (retourne `1`, comportement neutre en 1.4.3) ; nécessite la finalisation du SDK
+    (`targets/f7/api_symbols.csv`, version `87.2`, suivi en md5).
+  - `KEELOQ_LEARNING_NORMAL_JAROLIFT` (valeur `11`) ajouté à `keeloq_common.h`, sans
+    collision avec les valeurs 1.4.3 (0–7).
+
+**LFRFID (1 nouveau protocole)**, source `unlshd-089` :
+- `indala224` (`LFRFIDProtocolIndala224`) — implémente `ProtocolBase`, ajouté au registre
+  avant `LFRFIDProtocolMax`.
+
+Les protocoles NFC restent **hors-scope** (report délibéré) : chaque protocole NFC
+nécessite une pile poller/listener/device complète + intégration UI sur 4-5 registres,
+avec un risque de crash trop élevé pour un simple port de données.
+
 ## Note réglementaire (déverrouillage Sub-GHz TX — Palier 2, à venir)
 
 BGFlipper OS pourra activer l'émission Sub-GHz sur l'ensemble des bandes que le matériel

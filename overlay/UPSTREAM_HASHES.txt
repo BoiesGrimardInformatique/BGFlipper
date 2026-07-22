@@ -31,6 +31,18 @@ a533b2790c385966865271f17f0da826  applications/services/dolphin/dolphin.c
 9b867d9cfa5766aa60f95199864bf3cb  applications/settings/application.fam
 # Updater : écrase l'ancien slideshow post-update (sinon le dauphin persiste)
 bacb411214eca0c9b855f3945a653122  applications/system/updater/util/update_task_worker_backup.c
+# Palier 3 : registres protocoles étendus (6 Sub-GHz + indala224 LFRFID)
+35b35b8133a91e23c3dce5ae05dfeae7  lib/subghz/protocols/protocol_items.h
+b4c0a54e7a32cd675a9a178c02e9e6de  lib/subghz/protocols/protocol_items.c
+7eb04e8d2d06e6df26d6b7b4557c756f  lib/lfrfid/protocols/lfrfid_protocols.h
+067aa640cca9d6301554d2a21992ea5e  lib/lfrfid/protocols/lfrfid_protocols.c
+# Palier 3 rolling-code : global partagé Unleashed + fonction HAL (beninca/ditec/jarolift)
+5a489fedf30b7cf15c4f26246a74f8a4  lib/subghz/blocks/generic.h
+b32db5f864ac907f66a18387518b2d0d  lib/subghz/blocks/generic.c
+f69069bdbcdbc35f4a68bbbcaa9f3963  targets/f7/furi_hal/furi_hal_subghz.h
+a6f95c98109f4debe41e6d09c09e04da  lib/subghz/protocols/keeloq_common.h
+# API SDK finalisée pour la fonction HAL ajoutée (v87.2)
+eeaf0fc6b14112958c83c72b1b18ab7b  targets/f7/api_symbols.csv
 # Slideshow post-update + first-start : dauphin -> logo BG
 2c56802621a7ebc96868001001b03abf  assets/slideshow/update_default/frame_00.png
 d9c57c8ba01c18b080dbdbd6056751c6  assets/slideshow/first_start/frame_00.png
