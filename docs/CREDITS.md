@@ -49,6 +49,32 @@ sniff nRF, marauder, BLE spam, brute-force SubGHz, ouverture de coffres Sentry) 
 à un usage **autorisé** (pentest, recherche) sous la responsabilité de l'opérateur. Plusieurs
 nécessitent un **module matériel externe** (ESP32/ESP8266, nRF24) pour fonctionner.
 
+## Retrait du mascot « dauphin » (outil professionnel)
+
+BGFlipper OS est un outil pro **sans mascot ni élément ludique**. Le dauphin apparaissait
+via **11 sources distinctes**, toutes neutralisées (assets remplacés par le logo BG, ou
+patchs de code marqués `// BGFlipper OS:`) :
+
+- **Animations idle** externes *et* internes (`assets/dolphin/external|internal/manifest.txt`
+  → logo seul). L'astuce clé : les animations **internes** sont toujours ajoutées au pool
+  d'idle par `animation_storage.c`, donc le seul manifeste externe ne suffit pas.
+- **Fallback `L1_Tv`** : `animation_manager.c` `HARDCODED_ANIMATION_NAME` → `BGFlipperLogo`.
+- **Popup de level-up** : `dolphin.c` `level_up_is_pending = false` (le compteur XP survit
+  en interne, sans surface visible).
+- **Passeport** : `desktop_scene_main.c` bouton central → menu Apps ; app `passport` retirée
+  du build (`settings/application.fam`).
+- **Popups de confirmation** (`I_Dolphin*`, `I_RFIDDolphin*`, `I_NFC_dolphin_emulation`,
+  `I_WarningDolphin*`, `I_iButtonDolphinVerySuccess`) : PNG remplacés par le logo → tous les
+  écrans save/read/delete/success affichent le logo, **sans éditer les ~30 scènes**.
+- **Icône GameMode** : PNG vidé (indicateur invisible).
+- **Slideshow post-update** (`assets/slideshow/update_default/` → `splash.bin`) et
+  **first_start** : frames → logo.
+- **Animations « blocking »** (`assets/dolphin/blocking/L0_*` : SD ok/bad, no-db, url, mail)
+  → logo.
+- **Bug updater** : `update_task_worker_backup.c` — `storage_common_copy` n'écrase pas une
+  destination existante, donc un ancien slideshow dauphin sur `/int/.slideshow` persistait ;
+  on ajoute un `storage_simply_remove` avant la copie.
+
 ## Non importé (et pourquoi)
 
 - **Keeloq (`keeloq_mfcodes`)** : la liste étendue de fabricants d'Unleashed est un keystore

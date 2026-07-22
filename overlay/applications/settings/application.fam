@@ -1,0 +1,11 @@
+App(
+    appid="settings_apps",
+    name="Basic settings apps bundle",
+    apptype=FlipperAppType.METAPACKAGE,
+    provides=[
+        # BGFlipper OS: passeport dauphin retiré du build (outil pro, sans ludique)
+        "system_settings",
+        "clock_settings",
+        "about",
+    ],
+)

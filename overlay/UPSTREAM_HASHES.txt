@@ -8,4 +8,53 @@ d2b8666e91abbdc733beb5a6468d643c  targets/f7/furi_hal/furi_hal_subghz.c
 9a0894d00181bc644561d77558eab785  targets/f7/furi_hal/furi_hal_region.c
 8feafc1e8b581673fe12ee9a2cb49f15  applications/drivers/subghz/cc1101_ext/cc1101_ext.c
 461dc4e0e1032efe8b4215695ae9d6ca  assets/dolphin/external/manifest.txt
+717cb716d1d1cbfb481d0f7f0cb245aa  assets/dolphin/internal/manifest.txt
 efe15c404335c435b762c9c1fc36ce8f  applications/services/desktop/desktop.c
+54ea3b53aaf587be400b0fdebe57e6ef  applications/services/desktop/animations/animation_manager.c
+# Icônes dauphin remplacées par le logo BG (retrait du mascot, garde tout le technique)
+c9eb6fdfdd5121da0c05f64c3cbb5dc1  assets/icons/Dolphin/DolphinDone_80x58.png
+041175e7f7bb8c9971315748f0e95b56  assets/icons/Dolphin/DolphinMafia_119x62.png
+5950e7a5335272b13afe7a7430be6a3c  assets/icons/Dolphin/DolphinReadingSuccess_59x63.png
+fbed64bef4977bc66b28ade162697afe  assets/icons/Dolphin/DolphinSaved_92x58.png
+b783464848fc3177a6ce247329d7dbe4  assets/icons/Dolphin/DolphinSuccess_91x55.png
+c379ed68f03b6692e5a0a39ca624eaea  assets/icons/Dolphin/DolphinWait_59x54.png
+f8ca4c7bac4f94893d4465507ad611d2  assets/icons/Dolphin/WarningDolphin_45x42.png
+c07a1f0f268a6c882fb00b20695edefa  assets/icons/Dolphin/WarningDolphinFlip_45x42.png
+bd67c1b437d06ebc13ae492cac9070d2  assets/icons/iButton/iButtonDolphinVerySuccess_92x55.png
+d93f19f5eff503da7bd860e1ec3c20a0  assets/icons/NFC/NFC_dolphin_emulation_51x64.png
+42efdec6e52e783659634c8d1a41eb33  assets/icons/RFID/RFIDDolphinReceive_97x61.png
+6e1b9a3a1cae0f22c5891da6883ccbfd  assets/icons/RFID/RFIDDolphinSend_97x61.png
+e747b0e3576011f4ad5aab2c9628fced  assets/icons/StatusBar/GameMode_11x8.png
+# Retrait du mascot : level-up, passeport, enregistrement du passeport
+a533b2790c385966865271f17f0da826  applications/services/dolphin/dolphin.c
+67ffa4d13a0e0d508baa470cf1509df1  applications/services/desktop/scenes/desktop_scene_main.c
+9b867d9cfa5766aa60f95199864bf3cb  applications/settings/application.fam
+# Updater : écrase l'ancien slideshow post-update (sinon le dauphin persiste)
+bacb411214eca0c9b855f3945a653122  applications/system/updater/util/update_task_worker_backup.c
+# Slideshow post-update + first-start : dauphin -> logo BG
+2c56802621a7ebc96868001001b03abf  assets/slideshow/update_default/frame_00.png
+d9c57c8ba01c18b080dbdbd6056751c6  assets/slideshow/first_start/frame_00.png
+3b7d9b0a8a3ae99a22061778fd8b8184  assets/slideshow/first_start/frame_01.png
+d3b9c433f364b85a187bf78e84cafaf0  assets/slideshow/first_start/frame_02.png
+a66d7c69ebec2d0c746470e4639def0c  assets/slideshow/first_start/frame_03.png
+a16572d86587118c2bbf9c641e3cf4a4  assets/slideshow/first_start/frame_04.png
+c8e4c046b9450a6ad40404fb8fc30b53  assets/slideshow/first_start/frame_05.png
+# Animations "blocking" (bulles dauphin sur événements SD/DB/URL/mail) -> logo BG
+6122ed2fd9abacb01178bc2e466a7f31  assets/dolphin/blocking/L0_NewMail_128x51/frame_0.png
+5439fc7aa2a76949cf18149e0cc7f936  assets/dolphin/blocking/L0_NewMail_128x51/frame_1.png
+82787a6b13f7bcb77cf195e8a3ffb3ad  assets/dolphin/blocking/L0_NewMail_128x51/frame_2.png
+25051a1a2eda9ed356fdc83461a39396  assets/dolphin/blocking/L0_NewMail_128x51/frame_3.png
+3beb50bf33e1201b5a67874ee6052c19  assets/dolphin/blocking/L0_NoDb_128x51/frame_0.png
+b32a10d60040ee521c5e5c08e8c9200a  assets/dolphin/blocking/L0_NoDb_128x51/frame_1.png
+25136170740da92df18bdc41bf7c3d9c  assets/dolphin/blocking/L0_NoDb_128x51/frame_2.png
+e133428d9687a2a2166d4987793ba247  assets/dolphin/blocking/L0_NoDb_128x51/frame_3.png
+3f3ce84f3c2f8e66f5507496ab06c078  assets/dolphin/blocking/L0_SdBad_128x51/frame_0.png
+50ca3f96a35d9e67c1ba397881c6a8aa  assets/dolphin/blocking/L0_SdBad_128x51/frame_1.png
+033af55daacffbfdf0fe252a277e2fd4  assets/dolphin/blocking/L0_SdOk_128x51/frame_0.png
+f233eeb6318feaf354f9512b37da517e  assets/dolphin/blocking/L0_SdOk_128x51/frame_1.png
+9188587a022f90820dc93ff8d7d1d8b2  assets/dolphin/blocking/L0_SdOk_128x51/frame_2.png
+f71442f9676fdebb2cb6d7c6383d0d22  assets/dolphin/blocking/L0_SdOk_128x51/frame_3.png
+cd7a67280782cf911d110c41da9121b4  assets/dolphin/blocking/L0_Url_128x51/frame_0.png
+fae50d6fd402e945f58740cbd5096008  assets/dolphin/blocking/L0_Url_128x51/frame_1.png
+49a0f4f39fab09d062a554d9f068a229  assets/dolphin/blocking/L0_Url_128x51/frame_2.png
+63304724654b2992c81736db5f5c180f  assets/dolphin/blocking/L0_Url_128x51/frame_3.png
